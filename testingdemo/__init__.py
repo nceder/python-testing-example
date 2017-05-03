@@ -34,7 +34,7 @@ if TESTING:
 
 somethinguseful = AnExample()
 somethinguseful.make_something()
-somethinguseful.report_something()
+print(somethinguseful.report_something())
 
 if COVERAGE:
   codecoverage.stop()
