@@ -1,0 +1,5 @@
+*.pyc
+unittesting.log
+coverage
+.coverage
+libraries/coverage*
