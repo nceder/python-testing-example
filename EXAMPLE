@@ -13,6 +13,6 @@ Ran 2 tests in 0.001s
 OK
 
 username@hostname:~/python-testing-example$ ls -lha coverage/*html
--rw-r--r-- 1 lathama lathama 3.3K May  3 11:46 coverage/index.html
--rw-r--r-- 1 lathama lathama 7.4K May  3 11:46 coverage/testingdemo_howto_py.html
--rw-r--r-- 1 lathama lathama 9.3K May  3 11:46 coverage/unittests_test_AnExample_py.html
+-rw-r--r-- 1 username usergroup 3.3K May  3 11:46 coverage/index.html
+-rw-r--r-- 1 username usergroup 7.4K May  3 11:46 coverage/testingdemo_howto_py.html
+-rw-r--r-- 1 username usergroup 9.3K May  3 11:46 coverage/unittests_test_AnExample_py.html
