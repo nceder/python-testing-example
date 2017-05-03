@@ -1,8 +1,6 @@
 """
  https://github.com/lathama/python-testing-example
 """
-#from __future__ import print_function
-#import future_builtins
 import os, sys, time, unittest
 
 import_dir = "./libraries/"
