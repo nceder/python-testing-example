@@ -1,5 +1,7 @@
-You can unpack the coverage tool into this directory for code coverage.
+To enable coverage tests, download coverage tarball from 
 
-Go to something like https://pypi.python.org/pypi/coverage and look for the 
-source tar.gz
+https://pypi.python.org/pypi/coverage 
 
+and unpack here or install on your system with packages or with other tooling
+
+To enable Style tests aka pep8 do the same for pycodestyle

@@ -1,5 +1,5 @@
 # python-testing-example
-Example of Unittesting and Code Coverage being baked in
+Example of Unittesting, Code Coverage and Code Style Checks being baked in
 https://github.com/lathama/python-testing-example
 
 Enabling your software to run its tests on every execution can be helpful
@@ -9,6 +9,9 @@ This is an example only meant to demonstrate the idea.
 
 * If Python Coverage is installed or the source is in "libraries" directory 
   then code coverage will be run
+
+* If pycodestyle is installed or the source is in "libraries" directory
+  then style checks will be run
 
 * Unit Testing will not exit on error but will log to unittesting.log
 

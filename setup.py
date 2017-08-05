@@ -9,14 +9,14 @@ from sys import version_info, exit
 import testingdemo
 
 setup(
-  name='Testingdemo',
-  version=testingdemo.__version__
-  description='Python Testing Demonstration',
-  url='',
-  license='',
-  packages=find_packages(),
-  install_requires=[''],
-  entry_points={
-    'console_scripts': ['testingdemo=testingdemo.AnExample:report_something']
-  }
+    name='Testingdemo',
+    version=testingdemo.__version__
+    description='Python Testing Demonstration',
+    url='',
+    license='',
+    packages=find_packages(),
+    install_requires=[''],
+    entry_points={
+        'console_scripts': ['testingdemo=testingdemo.AnExample:report_something']
+    }
 )

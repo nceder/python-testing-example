@@ -3,3 +3,4 @@ unittesting.log
 coverage
 .coverage
 libraries/coverage*
+libraries/pycodestyle*
