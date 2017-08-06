@@ -7,18 +7,8 @@ import os
 import sys
 import unittest
 
-from testingdemo.howto import *
+if __debug__:
 
-__version__ = '1.0.1'
-
-
-if '-t' in sys.argv:
-    TESTING = True
-else:
-    TESTING = False
-
-if not __debug__ or TESTING:
-    print("### Running Tests, Coverage, and Style Checks ###")
     import_dir = "./libraries/"
     for d in os.listdir(import_dir):
         if os.path.isdir(import_dir + d):
@@ -42,7 +32,13 @@ if not __debug__ or TESTING:
     else:
         print("Code Coverage Disabled")
 
-    unittesting_log = open('unittesting.log', 'w')
+    __version__ = '1.0.1'
+    TESTING = True
+
+    from testingdemo.howto import *
+
+    unittesting_log = open('unittesting.log', 'a')
+    file_pos = unittesting_log.tell()
     timestamp = str(datetime.datetime.now().isoformat(' ')) + "\n"
     unittesting_log.write("Testing Example - " + timestamp)
     suite = unittest.TestLoader().discover('./testingdemo/unittests')
@@ -51,8 +47,13 @@ if not __debug__ or TESTING:
     unittesting_log.close()
 
     unittesting_log = open('unittesting.log')
+    unittesting_log.seek(file_pos)
     print(unittesting_log.read())
     unittesting_log.close()
+
+    somethinguseful = AnExample()
+    somethinguseful.make_something()
+    print(somethinguseful.report_something())
 
     if COVERAGE:
         codecoverage.stop()
@@ -68,5 +69,3 @@ if not __debug__ or TESTING:
         print('Style Check End')
     else:
         print("Code Style Checking is disabled")
-    print("### Finished Tests, Coverage, and Style Checks ###")
-
