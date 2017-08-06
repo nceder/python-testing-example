@@ -19,5 +19,5 @@ This is an example only meant to demonstrate the idea.
 
 * Unit Testing will not exit on error but will log to unittesting.log
 
-* Actions driven by the module's __init__.py so look there.
+* Actions driven by the module's `__init__.py` so look there.
 
