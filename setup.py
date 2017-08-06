@@ -10,7 +10,7 @@ import testingdemo
 
 setup(
     name='Testingdemo',
-    version=testingdemo.__version__
+    version=testingdemo.__version__,
     description='Python Testing Demonstration',
     url='',
     license='',

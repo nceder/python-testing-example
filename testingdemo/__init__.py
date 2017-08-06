@@ -7,58 +7,63 @@ import os
 import sys
 import unittest
 
-import_dir = "./libraries/"
-for d in os.listdir(import_dir):
-    if os.path.isdir(import_dir + d):
-        sys.path.insert(1, import_dir + d)
+if __debug__:
 
-try:
-    import coverage
-    COVERAGE = True
-except ImportError:
-    COVERAGE = False
-try:
-    import pycodestyle
-    STYLECHECK = True
-except ImportError:
-    STYLECHECK = False
+    import_dir = "./libraries/"
+    for d in os.listdir(import_dir):
+        if os.path.isdir(import_dir + d):
+            sys.path.insert(1, import_dir + d)
 
-if COVERAGE:
-    codecoverage = coverage.Coverage(omit='*unittests/*')
-    # Unittests skew results
-    codecoverage.start()
-else:
-    print("Code Coverage Disabled")
+    try:
+        import coverage
+        COVERAGE = True
+    except ImportError:
+        COVERAGE = False
+    try:
+        import pycodestyle
+        STYLECHECK = True
+    except ImportError:
+        STYLECHECK = False
 
-__version__ = '1.0.1'
-TESTING = True
+    if COVERAGE:
+        codecoverage = coverage.Coverage(omit='*unittests/*')
+        # Unittests skew results
+        codecoverage.start()
+    else:
+        print("Code Coverage Disabled")
 
-from testingdemo.howto import *
+    __version__ = '1.0.1'
+    TESTING = True
 
-unittesting_log = open('unittesting.log', 'r+')
-timestamp = str(datetime.datetime.now().isoformat(' ')) + "\n"
-unittesting_log.write("Testing Example - " + timestamp)
-suite = unittest.TestLoader().discover('./testingdemo/unittests')
-unittest.TextTestRunner(stream=unittesting_log, descriptions=True, verbosity=3).run(suite)
-unittesting_log.seek(0)
-print(unittesting_log.read())
-unittesting_log.close()
+    from testingdemo.howto import *
 
-somethinguseful = AnExample()
-somethinguseful.make_something()
-print(somethinguseful.report_something())
+    unittesting_log = open('unittesting.log', 'a')
+    timestamp = str(datetime.datetime.now().isoformat(' ')) + "\n"
+    unittesting_log.write("Testing Example - " + timestamp)
+    suite = unittest.TestLoader().discover('./testingdemo/unittests')
+    unittest.TextTestRunner(stream=unittesting_log, descriptions=True,
+                            verbosity=3).run(suite)
+    unittesting_log.close()
 
-if COVERAGE:
-    codecoverage.stop()
-    codecoverage.save()
-    codecoverage.html_report(directory="coverage")
-    print("Code coverage report done. See the index.html in: ")
-    print("\t" + '/coverage')
+    unittesting_log = open('unittesting.log')
+    print(unittesting_log.read())
+    unittesting_log.close()
 
-if STYLECHECK:
-    print('Style Check Start')
-    checker = pycodestyle.StyleGuide(exclude=['libraries'], quiet=False)
-    result = checker.check_files('.')
-    print('Style Check End')
-else:
-    print("Code Style Checking is disabled")
+    somethinguseful = AnExample()
+    somethinguseful.make_something()
+    print(somethinguseful.report_something())
+
+    if COVERAGE:
+        codecoverage.stop()
+        codecoverage.save()
+        codecoverage.html_report(directory="coverage")
+        print("Code coverage report done. See the index.html in: ")
+        print("\t" + '/coverage')
+
+    if STYLECHECK:
+        print('Style Check Start')
+        checker = pycodestyle.StyleGuide(exclude=['libraries'], quiet=False)
+        result = checker.check_files('.')
+        print('Style Check End')
+    else:
+        print("Code Style Checking is disabled")
