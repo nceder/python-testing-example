@@ -16,7 +16,7 @@ test_should_fail (test_AnExample.TestAnExample) ... FAIL
 FAIL: test_should_fail (test_AnExample.TestAnExample)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/lathama/git/python-testing-example/testingdemo/unittests/test_AnExample.py", line 28, in test_should_fail
+  File "python-testing-example/testingdemo/unittests/test_AnExample.py", line 28, in test_should_fail
     self.assertTrue(self.theclass.should_fail())
 AssertionError: False is not true
 
@@ -58,7 +58,7 @@ test_should_fail (test_AnExample.TestAnExample) ... FAIL
 FAIL: test_should_fail (test_AnExample.TestAnExample)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/home/lathama/git/python-testing-example/testingdemo/unittests/test_AnExample.py", line 28, in test_should_fail
+  File "python-testing-example/testingdemo/unittests/test_AnExample.py", line 28, in test_should_fail
     self.assertTrue(self.theclass.should_fail())
 AssertionError: False is not true
 
